@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const layout = ({ children }) => {
+const Layout = ({ children }) => {
   return (
     <>
       <header>
@@ -15,4 +15,4 @@ const layout = ({ children }) => {
   );
 };
 
-export default layout;
+export default Layout;
