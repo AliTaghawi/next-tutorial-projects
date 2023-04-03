@@ -1,0 +1,58 @@
+Extensions : 
+react dev tools
+----------------------
+
+npm install -g create-react-app
+
+npx create-react-app my-app (my-app ==> اسم اپ ریکتی بدون پرانتز)
+
+npm install {
+  radium
+  styled-components
+  node-sass
+  uuid
+  prop-types
+  axios
+  react-router-dom@5.2.0
+  react-router-dom
+  query-string
+  react-toastify
+  redux
+  react-redux
+  redux-logger
+  redux-devtools-extension /=> {composeWithDevTools}
+  redux-thunk
+  @apollo/client graphql
+  sanitize-html
+  formik
+  yup
+  @mui/material @emotion/react @emotion/styled /=> {material ui}
+  @mui/icons-material
+  stylis stylis-plugin-rtl /=> {material ui 'rtl'}
+  react-loader-spinner
+}
+
+sites for use {
+  fake store api = fakestoreapi.com
+}
+
+//**css**
+sites for color {
+  flatuicolors.com //سایت برای انتخاب رنگ درست 
+  coolors.co  //سایت برای انتخاب رنگ درست 
+  easings.net // سایت برای تایمینگ ترنزیشن و انیمیشن
+  www.heropatterns.com // سایت برای پترن
+  cssgradient.io //سایت برای گرادینت
+  unsplash.com //سایت برای عکس
+  fontawesome.com //سایت برای ایکون و ...
+  svgicons.sparkk.fr //سایت برای ایکون اس وی جی 
+}
+
+/////////////////////////////// NEXT ////////////////////
+
+npx create-next-app my-app (my-app ==> اسم اپ نکستی بدون پرانتز)
+
+npm install {
+  sass
+  
+}
