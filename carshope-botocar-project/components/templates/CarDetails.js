@@ -60,7 +60,7 @@ const CarDetails = (props) => {
         <p className={styles.descriptionText}>{description}</p>
       </div>
       <div className={styles.details}>
-       <div className={styles.price}>
+        <div className={styles.price}>
           <Money />
           <p>Price</p>
           <span>{price}</span>
