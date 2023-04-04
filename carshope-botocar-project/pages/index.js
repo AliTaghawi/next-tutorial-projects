@@ -5,6 +5,7 @@ import carsData from "../data/carsData";
 import Categories from "../components/modules/Categories";
 import SearchBar from "../components/modules/SearchBar";
 import Cars from "../components/templates/Cars";
+import SeeAll from "../components/modules/SeeAll";
 
 export default function Home() {
   const cars = carsData.slice(0, 3);
@@ -13,6 +14,7 @@ export default function Home() {
     <div>
       <SearchBar />
       <Categories />
+      <SeeAll />
       <Cars data={cars} />
     </div>
   );
