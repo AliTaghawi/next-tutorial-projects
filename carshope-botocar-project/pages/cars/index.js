@@ -1,9 +1,13 @@
+import Categories from '../../components/modules/Categories';
 import Cars from '../../components/templates/Cars';
 import carsData from '../../data/carsData'
 
 const index = () => {
   return (
-    <Cars data={carsData} />
+    <div>
+      <Categories />
+      <Cars data={carsData} />
+    </div>
   );
 };
 
