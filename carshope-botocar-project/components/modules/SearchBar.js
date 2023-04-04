@@ -20,7 +20,7 @@ const SearchBar = () => {
 
   const clickHandler = () => {
     if (searchData.min && searchData.max) {
-      router.push(`fillter/${searchData.min}/${searchData.max}`)
+      router.push(`filter/${searchData.min}/${searchData.max}`)
     } else {
       alert('Insert min and max price')
     }
@@ -30,13 +30,13 @@ const SearchBar = () => {
     <div className={styles.container}>
       <div>
         <input
-          placeHolder="Insert min price"
+          placeholder="Insert min price"
           name="min"
           value={searchData.min}
           onChange={changeHandler}
         />
         <input
-          placeHolder="Insert max price"
+          placeholder="Insert max price"
           name="max"
           value={searchData.max}
           onChange={changeHandler}
