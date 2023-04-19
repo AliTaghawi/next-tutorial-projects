@@ -54,5 +54,10 @@ npx create-next-app my-app (my-app ==> اسم اپ نکستی بدون پران�
 
 npm install {
   sass
-  
+   json-server => after installing needs to be create {
+    db.json
+    //and adding following line to package.json/scripts
+    "serve-json": "json-server --watch db.json --port 4000"
+  }
+  swr
 }
