@@ -1,3 +1,4 @@
+import Card from "../modules/common/Card";
 import styles from "./MenuPage.module.css";
 
 const MenuPage = ({ data }) => {
@@ -5,7 +6,9 @@ const MenuPage = ({ data }) => {
     <div className={styles.container}>
       <h2>Menu</h2>
       <div className={styles.subContainer}>
-        {data.map(foodProduct => <p key={foodProduct.id}>{foodProduct.name}</p>)}
+        {data.map((foodProduct) => (
+          <Card key={foodProduct.id} {...foodProduct} />
+        ))}
       </div>
     </div>
   );
