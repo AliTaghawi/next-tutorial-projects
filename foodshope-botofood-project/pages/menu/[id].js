@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
+import DetailsPage from "../../components/templates/DetailsPage";
 
-const Detials = (data) => {
+const Detials = ({ data }) => {
   const router = useRouter();
-
   if (router.isFallback) {
     return <div>Loading ...</div>;
   }
 
-  return <div>Detials Page</div>;
+  return <DetailsPage {...data} />;
 };
 
 export default Detials;
@@ -16,10 +16,22 @@ export async function getStaticPaths() {
   const res = await fetch("http://localhost:4000/data");
   const json = await res.json();
   const data = json.slice(0, 10);
-
+  
   const paths = data.map((food) => ({
     params: { id: food.id.toString() },
   }));
+
+  // const createPaths = (amount = 5, id = "id") => {
+  //   let newArray = [];
+  //   for (let i = 0; i < amount; i++) {
+  //     newArray.push({
+  //       params: { [id]: (i + 1).toString() },
+  //     });
+  //   }
+  //   return newArray;
+  // };
+
+  // const paths = createPaths();
 
   return {
     paths,
