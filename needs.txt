@@ -60,4 +60,6 @@ npm install {
     "serve-json": "json-server --watch db.json --port 4000"
   }
   swr
+  mongoose
+  
 }
