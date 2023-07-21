@@ -1,6 +1,9 @@
-import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import axios from "axios";
+
+//components
+import Form from "../modules/Form";
 
 function CustomerAddPage() {
   const [form, setForm] = useState({
@@ -27,6 +30,7 @@ function CustomerAddPage() {
   return (
     <div className="customer-page">
       <h4>Add New Customer</h4>
+      <Form form={form} setForm={setForm} />
       <div className="customer-page__buttons">
         <button className="first" onClick={cancelHandler}>
           Cancel
