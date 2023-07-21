@@ -37,13 +37,24 @@ export default async function handler(req, res) {
       customer.date = data.date;
       customer.updatedAt = Date.now();
       await customer.save();
+      res.status(200).json({
+        status: "successful",
+        message: "Customer updated successfuly",
+        data: customer,
+      });
+    } catch (err) {
+      console.log(err);
       res
-        .status(200)
-        .json({
-          status: "successful",
-          message: "Customer updated successfuly",
-          data: customer,
-        });
+        .status(500)
+        .json({ status: "failed", message: "Internal server error" });
+    }
+  } else if (req.method === "DELETE") {
+    try {
+      await Customer.findOneAndDelete({ _id: id });
+      res.status(200).json({
+        status: "successful",
+        message: "Customer deleted successfuly",
+      });
     } catch (err) {
       console.log(err);
       res
