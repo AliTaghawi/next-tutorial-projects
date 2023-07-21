@@ -1,4 +1,5 @@
 import FormInput from "./FormInput";
+import ItemList from "./ItemList";
 
 function Form({ form, setForm }) {
   const changeHandler = (e) => {
@@ -56,6 +57,7 @@ function Form({ form, setForm }) {
         value={form.date}
         changeHandler={changeHandler}
       />
+      <ItemList form={form} setForm={setForm} />
     </div>
   );
 }
