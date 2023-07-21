@@ -1,7 +1,9 @@
-function HomePage() {
+import Card from "../modules/Card";
+
+function HomePage({customers}) {
   return (
     <div>
-      HomePage
+      {customers.map(customer => <Card key={customer._id} customer={customer} />)}
     </div>
   );
 }
