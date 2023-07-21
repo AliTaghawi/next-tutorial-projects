@@ -18,7 +18,7 @@ function Card({customer}) {
       </div>
       <div className="card__buttons">
         <button onClick={deleteHandler}>delete</button>
-        <Link href={`/edite/${customer._id}`}>Edit</Link>
+        <Link href={`/edit/${customer._id}`}>Edit</Link>
         <Link href={`/details/${customer._id}`}>Details</Link>
       </div>
     </div>
