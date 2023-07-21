@@ -13,7 +13,7 @@ export default async function handler(req, res)  {
 
   if (req.method === "GET") {
     try {
-      const customer = Customer.findOne({_id: id})
+      const customer = await Customer.findOne({_id: id})
       res.status(200).json({status: "successful", data: customer})
     } catch (err) {
       console.log(err);
