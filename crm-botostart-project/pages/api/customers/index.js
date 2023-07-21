@@ -17,5 +17,19 @@ export default async function handler(req, res)  {
       console.log(err)
       res.status(500).json({status: "failed", message: "Internal server error"})
     }
+  } else if (req.method === "POST") {
+    const data = req.body
+
+    if (!data.name || !data.lastName || !data.email || data.email.length < 7 ) {
+      return res.status(400).json({status: "failed", message: "Invalid data"})
+    }
+
+    try {
+      const customer = await Customer.create(data);
+      res.status(200).json({status: "successful", message: "customer created successfuly", data: customer})
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({status: "failed", message: "Internal server error"})
+    }
   }
 }
