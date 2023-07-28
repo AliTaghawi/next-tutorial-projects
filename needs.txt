@@ -59,7 +59,8 @@ npm install {
     //and adding following line to package.json/scripts
     "serve-json": "json-server --watch db.json --port 4000"
   }
-  swr
-  mongoose
-  moment
+  swr => //مثل یوزافکته و برای گرفتن دیتا هست و همیشه دیتا رو آپدیت نگه میداره برای اطلاعات بیشتر به آخر فصل اس اس آر مراجعه کنید
+  mongoose // for work with mongoDB
+  moment // for formating Date
+  bcryptjs // for hashing passwords => برای رمز نگاری کردن پسورد
 }
