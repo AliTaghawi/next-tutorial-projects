@@ -65,6 +65,7 @@ npm install {
   bcryptjs // for hashing passwords => برای رمز نگاری کردن پسورد
   jsonwebtoken // for creating jwt token => برای ساخت توکن jwt
   cookie // برای ست کردن کوکی پیشرفته (تاریخ انقضا و محدود کردن فقط به بک‌اند و ...) 
+  next-auth // ورژن دوره v@4.19.2 برای بحث احراز هویت و تشخیص و دسترسی (کوکی و ...) 
 }
 
 site fo next : {
