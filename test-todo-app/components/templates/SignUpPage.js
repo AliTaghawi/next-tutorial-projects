@@ -10,6 +10,12 @@ function SignUpPage() {
 
   const router = useRouter();
 
+  const { status } = useSession();
+
+  useEffect(() => {
+    if (status === "authenticated") router.replace("/");
+  }, [status]);
+
   const changeHandler = (e) => {
     setFromData({ ...formData, [e.target.name]: e.target.value });
   };

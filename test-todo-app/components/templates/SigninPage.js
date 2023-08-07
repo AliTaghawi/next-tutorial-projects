@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import { signIn } from "next-auth/react";
+import { useEffect, useState } from "react";
+import { signIn, useSession } from "next-auth/react";
 
 function SigninPage() {
   const [formData, setFromData] = useState({
@@ -11,13 +11,19 @@ function SigninPage() {
 
   const router = useRouter();
 
+  const { status } = useSession();
+
+  useEffect(() => {
+    if (status === "authenticated") router.replace("/");
+  }, [status]);
+
   const changeHandler = (e) => {
     setFromData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const loginHandler = async () => {
     const res = await signIn("credentials", { ...formData, redirect: false });
-    if (!res.error) router.replace("/");
+    // if (!res.error) router.replace("/");
   };
 
   return (
