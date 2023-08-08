@@ -1,7 +1,7 @@
 function RadioButton({ status, onChange, value, label, children }) {
   return (
     <div className={value}>
-      <label>
+      <label htmlFor={value}>
         {children}
         {label}
       </label>

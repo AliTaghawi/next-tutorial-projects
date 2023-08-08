@@ -1,5 +1,6 @@
 import User from "@/models/User";
 import connectDB from "@/utils/connectDB";
+import { sortTodos } from "@/utils/sortTodos";
 import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
@@ -47,6 +48,14 @@ export default async function handler(req, res) {
       return res
         .status(500)
         .json({ status: "failed", message: "Internal sever error!" });
+    }
+  } else if (req.method === "GET") {
+    try{
+      const sortedTodos = sortTodos(user.todos)
+      res.status(200).json({status: "successful", data: sortedTodos })
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ status: "failed", message: "Internal sever error!" });
     }
   }
 }
