@@ -50,12 +50,36 @@ export default async function handler(req, res) {
         .json({ status: "failed", message: "Internal sever error!" });
     }
   } else if (req.method === "GET") {
-    try{
-      const sortedTodos = sortTodos(user.todos)
-      res.status(200).json({status: "successful", data: sortedTodos })
+    try {
+      const sortedTodos = sortTodos(user.todos);
+      res.status(200).json({ status: "successful", data: sortedTodos });
     } catch (err) {
       console.log(err);
-      res.status(500).json({ status: "failed", message: "Internal sever error!" });
+      res
+        .status(500)
+        .json({ status: "failed", message: "Internal sever error!" });
+    }
+  } else if (req.method === "PATCH") {
+    const { id, status } = req.body;
+
+    if (!id || !status) {
+      return res
+        .status(422)
+        .json({ status: "failed", message: "Invalid data!" });
+    }
+
+    try {
+      const result = await User.updateOne(
+        { "todos._id": id },
+        { $set: { "todos.$.status": status } }
+      );
+      console.log(result);
+      res.status(200).json({ status: "successful" });
+    } catch (err) {
+      console.log(err);
+      res
+        .status(500)
+        .json({ status: "failed", message: "Internal sever error!" });
     }
   }
 }
