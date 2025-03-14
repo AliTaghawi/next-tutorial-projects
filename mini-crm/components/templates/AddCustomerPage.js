@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 
 const AddCustomerPage = () => {
   const [form, setForm] = useState({
@@ -9,18 +10,46 @@ const AddCustomerPage = () => {
     address: "",
     postalCode: "",
     date: "",
-    products: []
-  })
+    products: [],
+  });
 
-  const saveHandler = () => {}
-  const cancelHandler = () => {}
-  
+  const router = useRouter();
+
+  const saveHandler = async () => {
+    const res = await fetch("/api/customers", {
+      method: "POST",
+      body: JSON.stringify(form),
+      headers: { "content-type": "application/json" },
+    });
+    const data = await res.json();
+    console.log(data)
+    if (data.status === "success") router.push("/");
+  };
+
+  const cancelHandler = () => {
+    setForm({
+      name: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      address: "",
+      postalCode: "",
+      date: "",
+      products: [],
+    });
+    router.push("/");
+  };
+
   return (
-    <div className='customer-page'>
+    <div className="customer-page">
       <h4>Add New Customer</h4>
-      <div className='customer-page__buttons'>
-        <button className='first' onClick={cancelHandler}>Cancel</button>
-        <button className='second' onClick={saveHandler}>Save</button>
+      <div className="customer-page__buttons">
+        <button className="first" onClick={cancelHandler}>
+          Cancel
+        </button>
+        <button className="second" onClick={saveHandler}>
+          Save
+        </button>
       </div>
     </div>
   );
